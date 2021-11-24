@@ -9,10 +9,14 @@ var authRouter = require("./routes/auth");
 var usersRouter = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
-
+var cors = require("cors");
 var app = express();
 dotenv.config();
-
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
